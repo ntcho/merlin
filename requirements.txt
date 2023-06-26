@@ -6,4 +6,4 @@ theano<=0.8.2
 keras<=2.3.1
 h5py<=2.10.0
 tensorflow<=1.2.1
-bandmat<=0.8
+bandmat<=0.8  # see https://github.com/CSTR-Edinburgh/merlin/issues/470
