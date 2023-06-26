@@ -8,12 +8,13 @@ egs/**/conf/*
 
 # Running part
 experiments/
-*data*
+*database*
 
 # Tools
 SPTK*
 build/
 bin/
+!tools/*
 
 # Pycharm IDE
 .idea/
