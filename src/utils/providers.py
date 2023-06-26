@@ -752,11 +752,14 @@ class ListDataProvider(object):
             out_features, out_frame_number = io_fun.load_binary_file_frame(self.y_files_list[self.file_index], self.n_outs)
 
             frame_number = lab_frame_number
-            if abs(lab_frame_number - out_frame_number) < 5:    ## we allow small difference here. may not be correct, but sometimes, there is one/two frames difference
+            # !! edited from 5 to 10
+            base_file_name = os.path.basename(self.x_files_list[self.file_index]).split('.')[0]
+            if abs(lab_frame_number - out_frame_number) < 10:    ## we allow small difference here. may not be correct, but sometimes, there is one/two frames difference
                 if lab_frame_number > out_frame_number:
                     frame_number = out_frame_number
+                # if abs(lab_frame_number - out_frame_number) > 2:
+                #     self.logger.info("the number of frames in label and acoustic features are different: %d vs %d (%s)" %(lab_frame_number, out_frame_number, base_file_name))
             else:
-                base_file_name = os.path.basename(self.x_files_list[self.file_index]).split('.')[0]
                 self.logger.critical("the number of frames in label and acoustic features are different: %d vs %d (%s)" %(lab_frame_number, out_frame_number, base_file_name))
                 raise
 
