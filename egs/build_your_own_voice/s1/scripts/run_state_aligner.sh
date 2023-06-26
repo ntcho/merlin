@@ -44,6 +44,7 @@ fi
 ### do forced alignment using HVite 
 echo "forced-alignment using HTK tools..."
 
+# !! macOS compatibility: Install gsed, see https://stackoverflow.com/a/44864004/4524257
 sed -i s#'HTKDIR =.*'#'HTKDIR = "'$HTKDIR'"'# $aligner/forced_alignment.py
 sed -i s#'work_dir =.*'#'work_dir = "'$WorkDir/$lab_dir'"'# $aligner/forced_alignment.py
 sed -i s#'wav_dir =.*'#'wav_dir = "'$WorkDir/$wav_dir'"'# $aligner/forced_alignment.py
