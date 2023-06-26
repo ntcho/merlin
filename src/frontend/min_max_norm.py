@@ -96,9 +96,14 @@ class MinMaxNormalisation(object):
         io_funcs = BinaryIOCollection()
         for i in range(file_number):
             features = io_funcs.load_binary_file(in_file_list[i], self.feature_dimension)
-
-            temp_min = numpy.amin(features, axis = 0)
-            temp_max = numpy.amax(features, axis = 0)
+            
+            # !! added for "ValueError: zero-size array to reduction operation minimum which has no identity"
+            try:
+                temp_min = numpy.amin(features, axis = 0)
+                temp_max = numpy.amax(features, axis = 0)
+            except ValueError as e:
+                logger.error("Error loading features from file %s", i)
+                logger.error(e)
 
             min_value_matrix[i, ] = temp_min;
             max_value_matrix[i, ] = temp_max;
