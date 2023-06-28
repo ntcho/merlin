@@ -31,7 +31,7 @@ fi
 ### do forced alignment using ehmm in clustergen setup
 mkdir -p $lab_dir
 cd $lab_dir
-mkdir cmu_us_${Voice}
+mkdir -p cmu_us_${Voice}
 cd cmu_us_${Voice}
 
 $FESTVOXDIR/src/clustergen/setup_cg cmu us ${Voice} 
@@ -48,7 +48,10 @@ else
     exit 1
 fi
 
-cp $WorkDir/$wav_dir/*.wav wav/
+# !! Workaround for 'Argument list too long'
+# original command: cp $WorkDir/$wav_dir/*.wav wav/
+cp -a $WorkDir/$wav_dir/ wav/  # see https://superuser.com/a/138592/632381
+echo "Copied $(ls wav | wc -l) files to ./wav"
 
 ./bin/do_build build_prompts 
 ./bin/do_build label

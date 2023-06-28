@@ -54,16 +54,19 @@ if [ "$prepare_labels" = true ]; then
 fi
 
 if [ "$copy" = true ]; then
-    echo "Copying labels to duration and acoustic data directories..."
+    echo "Symlinking labels to duration and acoustic data directories..."
     
     duration_data_dir=experiments/${Voice}/duration_model/data
     acoustic_data_dir=experiments/${Voice}/acoustic_model/data
     
-    cp -r $lab_dir/label_$Labels $duration_data_dir 
-    cp -r $lab_dir/label_$Labels $acoustic_data_dir
+    # !! create symlinks instead of copying every file: see https://apple.stackexchange.com/a/115647
+    ln -s $lab_dir/label_$Labels/ $duration_data_dir/
+    ln -s $lab_dir/label_$Labels/ $acoustic_data_dir/
     
     ls $lab_dir/label_$Labels > $duration_data_dir/$FileIDList
     ls $lab_dir/label_$Labels > $acoustic_data_dir/$FileIDList
+
+    echo "Found $(ls $lab_dir/label_$Labels | wc -l) files in '$lab_dir/label_$Labels'"
     
     sed -i 's/\.lab//g' $duration_data_dir/$FileIDList
     sed -i 's/\.lab//g' $acoustic_data_dir/$FileIDList
