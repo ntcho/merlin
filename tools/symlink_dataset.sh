@@ -75,3 +75,4 @@ echo "Created $count_txt symlinks to '$script_dir/database/txt/'"
 ### Rename to final directory
 mv $database_tmp_dir $database_final_dir
 echo "Completed creating symlinks to $database_final_dir"
+echo "Check whether wav and txt file names match..."

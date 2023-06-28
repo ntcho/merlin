@@ -37,12 +37,8 @@
 
 LANG=C; export LANG
 
-# !! macOS Compatibility: environment variable
-source /Users/ntcho/Workspace/Code/bsri23/merlin/egs/build_your_own_voice/s1/conf/global_settings.cfg
-
-# # !! macOS Compatibility: using gnu-sed
+# !! macOS Compatibility: using gnu-sed (needs to be installed via brew)
 export PATH="/usr/local/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-which sed
 
 if [ ! "$ESTDIR" ]
 then
@@ -79,12 +75,6 @@ fi
 FV_INST=$1
 FV_LANG=$2
 FV_VOX=$3
-
-echo ">> DEBUG"
-echo "$ESTDIR"
-echo "$FESTVOXDIR"
-
-pwd
 
 if [ ! -f festvox/build_clunits.scm ]
 then
