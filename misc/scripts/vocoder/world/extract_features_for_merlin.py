@@ -208,27 +208,31 @@ def process(filename):
 print("--- Feature extraction started ---")
 start_time = time.time()
 
-# get wav files list
-wav_files = get_wav_filelist(wav_dir)
+# !! Fix RuntimeError: see https://stackoverflow.com/a/60693016/4524257
+if __name__ == "__main__":
+    print("--- Feature extraction started ---")
+    start_time = time.time()
 
-# do multi-processing
-pool = mp.Pool(mp.cpu_count())
-pool.map(process, wav_files)
+    # get wav files list
+    wav_files = get_wav_filelist(wav_dir)
 
-# DEBUG:
-#for nxf in xrange(len(wav_files)):
-#    process(wav_files[nxf])
+    # do multi-processing
+    pool = mp.Pool(mp.cpu_count())
+    pool.map(process, wav_files)
 
-# clean temporal files
-shutil.rmtree(sp_dir, ignore_errors=True)
-shutil.rmtree(f0_dir, ignore_errors=True)
+    # DEBUG:
+    #for nxf in xrange(len(wav_files)):
+    #    process(wav_files[nxf])
+
+    # clean temporal files
+    shutil.rmtree(sp_dir, ignore_errors=True)
+    shutil.rmtree(f0_dir, ignore_errors=True)
 
 
-for zippath in glob.iglob(os.path.join(bap_dir, '*.bapd')):
-    os.remove(zippath)
+    for zippath in glob.iglob(os.path.join(bap_dir, '*.bapd')):
+        os.remove(zippath)
 
-print("You should have your features ready in: "+out_dir)    
+    print("You should have your features ready in: "+out_dir)    
 
-(m, s) = divmod(int(time.time() - start_time), 60)
-print(("--- Feature extraction completion time: %d min. %d sec ---" % (m, s)))
-
+    (m, s) = divmod(int(time.time() - start_time), 60)
+    print(("--- Feature extraction completion time: %d min. %d sec ---" % (m, s)))
