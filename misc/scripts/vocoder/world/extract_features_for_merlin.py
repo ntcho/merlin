@@ -204,9 +204,10 @@ def process(filename):
                                             os.path.join(bap_dir, file_id + ".bapd"), \
                                             os.path.join(bap_dir, file_id + '.bap'))
     os.system(sptk_x2x_df_cmd2)
-
-print("--- Feature extraction started ---")
-start_time = time.time()
+    
+    ### remove sp file ###
+    # !! Fix No space left on device error
+    os.system("rm %s" % os.path.join(sp_dir, file_id + '.sp'))
 
 # !! Fix RuntimeError: see https://stackoverflow.com/a/60693016/4524257
 if __name__ == "__main__":
