@@ -35,7 +35,7 @@ fi
 ########## Prepare labels ##########
 ####################################
 
-prepare_labels=true
+prepare_labels=false
 copy=true
 
 if [ "$prepare_labels" = true ]; then
@@ -58,15 +58,19 @@ if [ "$copy" = true ]; then
     
     duration_data_dir=experiments/${Voice}/duration_model/data
     acoustic_data_dir=experiments/${Voice}/acoustic_model/data
+
+    pwd=$(pwd)
     
     # !! create symlinks instead of copying every file: see https://apple.stackexchange.com/a/115647
-    ln -s $lab_dir/label_$Labels/ $duration_data_dir/
-    ln -s $lab_dir/label_$Labels/ $acoustic_data_dir/
+    ln -s $pwd/$lab_dir/label_$Labels $duration_data_dir/label_$Labels
+    ln -s $pwd/$lab_dir/label_$Labels $acoustic_data_dir/label_$Labels
     
     ls $lab_dir/label_$Labels > $duration_data_dir/$FileIDList
     ls $lab_dir/label_$Labels > $acoustic_data_dir/$FileIDList
 
     echo "Found $(ls $lab_dir/label_$Labels | wc -l) files in '$lab_dir/label_$Labels'"
+    echo "Found $(ls $duration_data_dir/label_$Labels | wc -l) files in '$duration_data_dir/label_$Labels'"
+    echo "Found $(ls $acoustic_data_dir/label_$Labels | wc -l) files in '$acoustic_data_dir/label_$Labels'"
     
     sed -i 's/\.lab//g' $duration_data_dir/$FileIDList
     sed -i 's/\.lab//g' $acoustic_data_dir/$FileIDList
