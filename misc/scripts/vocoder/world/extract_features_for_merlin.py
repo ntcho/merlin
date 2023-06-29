@@ -150,6 +150,21 @@ def reaper_f0_extract(in_wavfile, f0_file_ref, f0_file_out, frame_shift_ms=5.0):
     return
 
 
+filename_exception = []
+
+
+def process_wrapper(filename):
+    '''
+    The function wraps the process function and handles exceptions to suppress errors
+    :param filename: path to wav file
+    '''
+    try:
+        process(filename)
+    except Exception as e:
+        print(e)
+        filename_exception.append(filename)
+
+
 def process(filename):
     '''
     The function decomposes a wav file into F0, mel-cepstral coefficients, and aperiodicity
@@ -218,8 +233,9 @@ if __name__ == "__main__":
     wav_files = get_wav_filelist(wav_dir)
 
     # do multi-processing
+    print("Multi-processing with %d CPU cores" % mp.cpu_count())
     pool = mp.Pool(mp.cpu_count())
-    pool.map(process, wav_files)
+    pool.map(process_wrapper, wav_files)
 
     # DEBUG:
     #for nxf in xrange(len(wav_files)):
@@ -232,6 +248,10 @@ if __name__ == "__main__":
 
     for zippath in glob.iglob(os.path.join(bap_dir, '*.bapd')):
         os.remove(zippath)
+    
+    if len(filename_exception) > 0:
+        print("Failed to extract features from %d files:" % len(filename_exception))
+        print("\n".join(["- %s" % f for f in filename_exception]))
 
     print("You should have your features ready in: "+out_dir)    
 
