@@ -1,7 +1,0 @@
-Step 4:
-preparing config files for acoustic, duration models...
-Duration configuration settings stored in conf/duration_libritts-100.conf
-Acoustic configuration settings stored in conf/acoustic_libritts-100.conf
-preparing config files for synthesis...
-Duration configuration settings stored in conf/test_dur_synth_libritts-100.conf
-Acoustic configuration settings stored in conf/test_synth_libritts-100.conf
