@@ -2,9 +2,9 @@
 *.pyc
 
 # Auto generated conf
-egs/**/conf/*
-!egs/**/conf/dnn
-!egs/**/conf/logging_config.conf
+# egs/**/conf/*
+# !egs/**/conf/dnn
+# !egs/**/conf/logging_config.conf
 
 # Running part
 experiments/
