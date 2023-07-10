@@ -619,96 +619,113 @@ def main_function(cfg):
     if cfg.NORMLAB:
         # simple HTS labels
         logger.info('preparing label data (input) using standard HTS style labels')
-        label_normaliser.perform_normalisation(in_label_align_file_list, binary_label_file_list, label_type=cfg.label_type)
+        # label_normaliser.perform_normalisation(in_label_align_file_list, binary_label_file_list, label_type=cfg.label_type)
+        # !! skip normalizing labels
+        logger.warn('skipped perform_normalisation')
 
-        if cfg.additional_features:
-            out_feat_file_list = file_paths.out_feat_file_list
-            in_dim = label_normaliser.dimension
+        # if cfg.additional_features:
+        #     out_feat_file_list = file_paths.out_feat_file_list
+        #     in_dim = label_normaliser.dimension
 
-            for new_feature, new_feature_dim in cfg.additional_features.items():
-                new_feat_dir  = os.path.join(data_dir, new_feature)
-                new_feat_file_list = prepare_file_path_list(file_id_list, new_feat_dir, '.'+new_feature)
+        #     for new_feature, new_feature_dim in cfg.additional_features.items():
+        #         new_feat_dir  = os.path.join(data_dir, new_feature)
+        #         new_feat_file_list = prepare_file_path_list(file_id_list, new_feat_dir, '.'+new_feature)
 
-                merger = MergeFeat(lab_dim = in_dim, feat_dim = new_feature_dim)
-                merger.merge_data(binary_label_file_list, new_feat_file_list, out_feat_file_list)
-                in_dim += new_feature_dim
+        #         merger = MergeFeat(lab_dim = in_dim, feat_dim = new_feature_dim)
+        #         merger.merge_data(binary_label_file_list, new_feat_file_list, out_feat_file_list)
+        #         in_dim += new_feature_dim
 
-                binary_label_file_list = out_feat_file_list
+        #         binary_label_file_list = out_feat_file_list
+        # !! skip loading labels
+        logger.warn('skipped merge_data')
 
-        remover = SilenceRemover(n_cmp = lab_dim, silence_pattern = cfg.silence_pattern, label_type=cfg.label_type, remove_frame_features = cfg.add_frame_features, subphone_feats = cfg.subphone_feats)
-        remover.remove_silence(binary_label_file_list, in_label_align_file_list, nn_label_file_list)
+        # remover = SilenceRemover(n_cmp = lab_dim, silence_pattern = cfg.silence_pattern, label_type=cfg.label_type, remove_frame_features = cfg.add_frame_features, subphone_feats = cfg.subphone_feats)
+        # remover.remove_silence(binary_label_file_list, in_label_align_file_list, nn_label_file_list)
+        # !! skip removing silences
+        logger.warn('skipped remove_silence')
 
-        min_max_normaliser = MinMaxNormalisation(feature_dimension = lab_dim, min_value = 0.01, max_value = 0.99)
+        # min_max_normaliser = MinMaxNormalisation(feature_dimension = lab_dim, min_value = 0.01, max_value = 0.99)
 
-        ###use only training data to find min-max information, then apply on the whole dataset
-        if cfg.GenTestList:
-            min_max_normaliser.load_min_max_values(label_norm_file)
-        else:
-            min_max_normaliser.find_min_max_values(nn_label_file_list[0:cfg.train_file_number])
+        # ###use only training data to find min-max information, then apply on the whole dataset
+        # if cfg.GenTestList:
+        #     min_max_normaliser.load_min_max_values(label_norm_file)
+        # else:
+        #     min_max_normaliser.find_min_max_values(nn_label_file_list[0:cfg.train_file_number])
 
-        ### enforce silence such that the normalization runs without removing silence: only for final synthesis
-        if cfg.GenTestList and cfg.enforce_silence:
-            min_max_normaliser.normalise_data(binary_label_file_list, nn_label_norm_file_list)
-        else:
-            min_max_normaliser.normalise_data(nn_label_file_list, nn_label_norm_file_list)
+        # ### enforce silence such that the normalization runs without removing silence: only for final synthesis
+        # if cfg.GenTestList and cfg.enforce_silence:
+        #     min_max_normaliser.normalise_data(binary_label_file_list, nn_label_norm_file_list)
+        # else:
+        #     min_max_normaliser.normalise_data(nn_label_file_list, nn_label_norm_file_list)
+        # !! skip min_max_normaliser
+        logger.warn('skipped min_max_normaliser')
 
 
 
-    if min_max_normaliser != None and not cfg.GenTestList:
-        ### save label normalisation information for unseen testing labels
-        label_min_vector = min_max_normaliser.min_vector
-        label_max_vector = min_max_normaliser.max_vector
-        label_norm_info = numpy.concatenate((label_min_vector, label_max_vector), axis=0)
+    # if min_max_normaliser != None and not cfg.GenTestList:
+    #     ### save label normalisation information for unseen testing labels
+    #     label_min_vector = min_max_normaliser.min_vector
+    #     label_max_vector = min_max_normaliser.max_vector
+    #     label_norm_info = numpy.concatenate((label_min_vector, label_max_vector), axis=0)
 
-        label_norm_info = numpy.array(label_norm_info, 'float32')
-        fid = open(label_norm_file, 'wb')
-        label_norm_info.tofile(fid)
-        fid.close()
-        logger.info('saved %s vectors to %s' %(label_min_vector.size, label_norm_file))
+    #     label_norm_info = numpy.array(label_norm_info, 'float32')
+    #     fid = open(label_norm_file, 'wb')
+    #     label_norm_info.tofile(fid)
+    #     fid.close()
+    #     logger.info('saved %s vectors to %s' %(label_min_vector.size, label_norm_file))
+    # !! skip min_max_normaliser
+    logger.warn('skipped saving min_max_normaliser')
 
-    ### make output duration data
-    if cfg.MAKEDUR:
-        logger.info('creating duration (output) features')
-        label_normaliser.prepare_dur_data(in_label_align_file_list, file_paths.dur_file_list, cfg.label_type, cfg.dur_feature_type)
+    # ### make output duration data
+    # if cfg.MAKEDUR:
+    #     logger.info('creating duration (output) features')
+    #     label_normaliser.prepare_dur_data(in_label_align_file_list, file_paths.dur_file_list, cfg.label_type, cfg.dur_feature_type)
+    # # !! skip prepare_dur_data
+    logger.warn('skipped prepare_dur_data')
 
-    ### make output acoustic data
-    if cfg.MAKECMP:
-        logger.info('creating acoustic (output) features')
-        delta_win = cfg.delta_win #[-0.5, 0.0, 0.5]
-        acc_win = cfg.acc_win     #[1.0, -2.0, 1.0]
+    # ### make output acoustic data
+    # if cfg.MAKECMP:
+    #     logger.info('creating acoustic (output) features')
+    #     delta_win = cfg.delta_win #[-0.5, 0.0, 0.5]
+    #     acc_win = cfg.acc_win     #[1.0, -2.0, 1.0]
+        
+    #     logger.info('len(nn_cmp_file_list) %s' % len(nn_cmp_file_list))
 
-        if cfg.GenTestList:
-            for feature_name in list(cfg.in_dir_dict.keys()):
-                in_file_list_dict[feature_name] = prepare_file_path_list(test_id_list, cfg.in_dir_dict[feature_name], cfg.file_extension_dict[feature_name], False)
-            nn_cmp_file_list      = prepare_file_path_list(test_id_list, nn_cmp_dir, cfg.cmp_ext)
-            nn_cmp_norm_file_list = prepare_file_path_list(test_id_list, nn_cmp_norm_dir, cfg.cmp_ext)
+    #     if cfg.GenTestList:
+    #         for feature_name in list(cfg.in_dir_dict.keys()):
+    #             in_file_list_dict[feature_name] = prepare_file_path_list(test_id_list, cfg.in_dir_dict[feature_name], cfg.file_extension_dict[feature_name], False)
+    #         nn_cmp_file_list      = prepare_file_path_list(test_id_list, nn_cmp_dir, cfg.cmp_ext)
+    #         nn_cmp_norm_file_list = prepare_file_path_list(test_id_list, nn_cmp_norm_dir, cfg.cmp_ext)
 
-        if 'dur' in list(cfg.in_dir_dict.keys()) and cfg.AcousticModel:
-            lf0_file_list = file_paths.get_lf0_file_list()
-            acoustic_worker = AcousticComposition(delta_win = delta_win, acc_win = acc_win)
-            acoustic_worker.make_equal_frames(dur_file_list, lf0_file_list, cfg.in_dimension_dict)
-            acoustic_worker.prepare_nn_data(in_file_list_dict, nn_cmp_file_list, cfg.in_dimension_dict, cfg.out_dimension_dict)
-        else:
-            perform_acoustic_composition(delta_win, acc_win, in_file_list_dict, nn_cmp_file_list, cfg, parallel=True)
+    #     if 'dur' in list(cfg.in_dir_dict.keys()) and cfg.AcousticModel:
+    #         lf0_file_list = file_paths.get_lf0_file_list()
+    #         acoustic_worker = AcousticComposition(delta_win = delta_win, acc_win = acc_win)
+    #         acoustic_worker.make_equal_frames(dur_file_list, lf0_file_list, cfg.in_dimension_dict)
+    #         acoustic_worker.prepare_nn_data(in_file_list_dict, nn_cmp_file_list, cfg.in_dimension_dict, cfg.out_dimension_dict)
+    #     else:
+    #         perform_acoustic_composition(delta_win, acc_win, in_file_list_dict, nn_cmp_file_list, cfg, parallel=True)
 
-        if cfg.remove_silence_using_binary_labels:
-            ## do this to get lab_dim:
-            label_composer = LabelComposer()
-            label_composer.load_label_configuration(cfg.label_config_file)
-            lab_dim=label_composer.compute_label_dimension()
+    #     if cfg.remove_silence_using_binary_labels:
+    #         ## do this to get lab_dim:
+    #         label_composer = LabelComposer()
+    #         label_composer.load_label_configuration(cfg.label_config_file)
+    #         lab_dim=label_composer.compute_label_dimension()
 
-            silence_feature = 0 ## use first feature in label -- hardcoded for now
-            logger.info('Silence removal from CMP using binary label file')
+    #         silence_feature = 0 ## use first feature in label -- hardcoded for now
+    #         logger.info('Silence removal from CMP using binary label file')
 
-            ## overwrite the untrimmed audio with the trimmed version:
-            trim_silence(nn_cmp_file_list, nn_cmp_file_list, cfg.cmp_dim,
-                                binary_label_file_list, lab_dim, silence_feature)
+    #         ## overwrite the untrimmed audio with the trimmed version:
+    #         trim_silence(nn_cmp_file_list, nn_cmp_file_list, cfg.cmp_dim,
+    #                             binary_label_file_list, lab_dim, silence_feature)
 
-        elif cfg.remove_silence_using_hts_labels: 
-            ## back off to previous method using HTS labels:
-            remover = SilenceRemover(n_cmp = cfg.cmp_dim, silence_pattern = cfg.silence_pattern, label_type=cfg.label_type, remove_frame_features = cfg.add_frame_features, subphone_feats = cfg.subphone_feats)
-            remover.remove_silence(nn_cmp_file_list, in_label_align_file_list, nn_cmp_file_list) # save to itself
+    #     elif cfg.remove_silence_using_hts_labels: 
+    #         ## back off to previous method using HTS labels:
+    #         remover = SilenceRemover(n_cmp = cfg.cmp_dim, silence_pattern = cfg.silence_pattern, label_type=cfg.label_type, remove_frame_features = cfg.add_frame_features, subphone_feats = cfg.subphone_feats)
+    #         remover.remove_silence(nn_cmp_file_list, in_label_align_file_list, nn_cmp_file_list) # save to itself
 
+    # # !! skip prepare_dur_data
+    logger.warn('skipped outputting acoustic data')
+    
     ### save acoustic normalisation information for normalising the features back
     var_dir  = file_paths.var_dir
     var_file_dict = file_paths.get_var_dic()
