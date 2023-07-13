@@ -1,3 +1,6 @@
+# !! exported using `conda env export > environment.yml`
+# !! recreate using `conda env create -f environment.yml`
+
 name: merlin
 channels:
   - defaults
@@ -23,7 +26,7 @@ dependencies:
   - zlib=1.2.13=h4dc903c_0
   - pip:
       - backports-weakref==1.0rc1
-      - bandmat==0.8.dev1
+      # - bandmat==0.8.dev1  # install using `pip install git+https://github.com/MattShannon/bandmat`
       - bleach==1.5.0
       - cycler==0.11.0
       - dataclasses==0.8
@@ -52,6 +55,3 @@ dependencies:
       - werkzeug==2.0.3
       - zipp==3.6.0
 prefix: /Users/ntcho/miniconda3/envs/merlin
-
-# exported using `conda env export > environment.yml`
-# recreate using `conda env create -f environment.yml`
