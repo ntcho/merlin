@@ -30,8 +30,8 @@ Kernel configured for up to 16 processors.
 Processor type: x86_64h (Intel x86-64h Haswell)
 Processors active: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 Primary memory available: 64.00 gigabytes
-Default processor set: 461 tasks, 1814 threads, 16 processors
-Load average: 1.90, Mach factor: 14.08
+Default processor set: 465 tasks, 1848 threads, 16 processors
+Load average: 3.04, Mach factor: 12.94
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
@@ -56,11 +56,11 @@ PATH: /Library/Frameworks/Python.framework/Versions/3.10/bin
 ## ----------- ##
 
 configure:2295: checking for a BSD-compatible install
-configure:2363: result: /usr/bin/install -c
+configure:2363: result: /usr/local/bin/ginstall -c
 configure:2374: checking whether build environment is sane
 configure:2429: result: yes
 configure:2580: checking for a thread-safe mkdir -p
-configure:2619: result: config/install-sh -c -d
+configure:2619: result: /usr/local/bin/gmkdir -p
 configure:2626: checking for gawk
 configure:2656: result: no
 configure:2626: checking for mawk
@@ -700,7 +700,8 @@ ac_cv_objext=o
 ac_cv_path_CSH=/bin/csh
 ac_cv_path_EGREP='/usr/bin/grep -E'
 ac_cv_path_GREP=/usr/bin/grep
-ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_install='/usr/local/bin/ginstall -c'
+ac_cv_path_mkdir=/usr/local/bin/gmkdir
 ac_cv_prog_AWK=awk
 ac_cv_prog_CPP='gcc -E'
 ac_cv_prog_ac_ct_AR=ar
@@ -760,7 +761,7 @@ LIBS='-lm '
 LN_S='ln -s'
 LTLIBOBJS=''
 MAKEINFO='${SHELL} /Volumes/Storage/.workspace/merlin/tools/SPTK-3.9/config/missing makeinfo'
-MKDIR_P='config/install-sh -c -d'
+MKDIR_P='/usr/local/bin/gmkdir -p'
 OBJEXT='o'
 PACKAGE='SPTK'
 PACKAGE_BUGREPORT='http://sourceforge.net/projects/sp-tk/'
