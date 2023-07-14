@@ -49,7 +49,7 @@ pip install git+https://github.com/MattShannon/bandmat
 ### Merlin toolkit
 
 ```bash
-brew install autoconf automake libtool gnu-sed
+brew install coreutils autoconf automake libtool gnu-sed
 vi ~/.zprofile  # add `PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"`
 bash tools/compile_tools.sh
 ```
