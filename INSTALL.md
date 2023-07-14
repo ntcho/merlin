@@ -1,15 +1,66 @@
-# INSTALL
+# Installation
 
-To install Merlin, `cd` merlin and run the below steps:
+## [brew](https://brew.sh/)
+  
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/labguest/.zprofile
+  eval "$(/usr/local/bin/brew shellenv)"
+```
 
-- Install some basic tools in Merlin
-```sh
+## [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links)
+
+```bash
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O && bash Miniconda3-latest-*.sh  # use MacOSX-arm64 for Apple Silicon
+conda init zsh
+rm Miniconda3-latest-*.sh
+```
+
+## git
+
+```bash
+brew install git
+brew link --overwrite git  # overwrites existing git installation
+git --version
+```
+
+# Configuration
+
+## Merlin
+
+### Git
+
+```bash
+git clone https://github.com/ntcho/merlin && cd merlin
+git config user.name "Nathan Cho"
+git config user.email "ntcho13@gmail.com"
+git checkout apple-intel  # use apple-silicon for Apple Silicon
+```
+
+### Conda environment
+
+```bash
+conda env create -f environment.yml
+conda activate merlin
+conda install pip
+pip install git+https://github.com/MattShannon/bandmat
+```
+
+### Merlin toolkit
+
+```bash
+brew install autoconf automake libtool gnu-sed
+vi ~/.zprofile  # add `PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"`
 bash tools/compile_tools.sh
 ```
-- Install python dependencies
-```sh
-pip install -r requirements.txt
+
+### Dataset config
+
+```bash
+code egs/build_your_own_voice/s1/conf/global_settings.cfg  # update utterance counts
 ```
+
+Symlink (or copy) `.{wav|txt}` files from the dataset to `**/s1/database/{wav|txt}`.
 
 ## More advanced instructions
 
