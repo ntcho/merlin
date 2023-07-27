@@ -8,7 +8,7 @@
 
 # Running part
 experiments/
-*database*
+*database*/
 
 # Tools
 SPTK*
