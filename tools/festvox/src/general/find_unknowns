@@ -1,5 +1,5 @@
 #!/bin/sh
-"true" ; exec /Users/ntcho/Workspace/Code/bsri23/merlin/tools/speech_tools/../festival/bin/festival --script $0 $*
+"true" ; exec /Volumes/Storage/.workspace/merlin/tools/speech_tools/../festival/bin/festival --script $0 $*
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-*-mode:scheme-*-
 ;;;                                                                     ;;;
 ;;;                     Carnegie Mellon University                      ;;;

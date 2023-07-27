@@ -5,7 +5,7 @@
  #                                                                         #
  ###########################################################################
 
-EST_HOME=/Users/ntcho/Workspace/Code/bsri23/merlin/tools/speech_tools
+EST_HOME=/Volumes/Storage/.workspace/merlin/tools/speech_tools
 
 EXECS = 
 

@@ -24,7 +24,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = ..
 
-prefix = /Users/ntcho/Workspace/Code/bsri23/merlin/tools/htk/build
+prefix = /Volumes/Storage/.workspace/merlin/tools/htk/build
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
 sbindir = ${exec_prefix}/sbin
@@ -42,7 +42,7 @@ oldincludedir = /usr/include
 CC = gcc
 CFLAGS = -ansi -g -O2 -DNO_AUDIO -D'ARCH="darwin"' -I/usr/include/malloc -Wall -Wno-switch -g -O2 -DSANITY -I. -I../HTKLib/
 RANLIB = ranlib
-INSTALL = /usr/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 target  = HLMLib.a
 modules = LModel.o LPMerge.o LPCalc.o LUtil.o LWMap.o LCMap.o LGBase.o
 

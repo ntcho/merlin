@@ -155,7 +155,7 @@ AR = ar
 AUTOCONF = ${SHELL} /Volumes/Storage/.workspace/merlin/tools/SPTK-3.9/config/missing autoconf
 AUTOHEADER = ${SHELL} /Volumes/Storage/.workspace/merlin/tools/SPTK-3.9/config/missing autoheader
 AUTOMAKE = ${SHELL} /Volumes/Storage/.workspace/merlin/tools/SPTK-3.9/config/missing automake-1.15
-AWK = awk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2

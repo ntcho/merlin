@@ -71,7 +71,7 @@ HTKLIB = $(inc)/HTKLib.a
 srcdir = .
 top_srcdir = ..
 
-prefix = /Users/ntcho/Workspace/Code/bsri23/merlin/tools/htk/build
+prefix = /Volumes/Storage/.workspace/merlin/tools/htk/build
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
 sbindir = ${exec_prefix}/sbin
@@ -89,7 +89,7 @@ oldincludedir = /usr/include
 CC      = 	gcc
 CFLAGS  = 	-ansi -g -O2 -DNO_AUDIO -D'ARCH="darwin"' -I/usr/include/malloc -Wall -Wno-switch -g -O2 -I$(inc) -DPHNALG
 LDFLAGS = 	-L/usr/X11R6/lib  -lm
-INSTALL = 	/usr/bin/install -c
+INSTALL = 	/usr/local/bin/ginstall -c
 PROGS   = 	HSLab HBuild HCompV HCopy HDMan \
 		HERest HHEd HInit HLEd 	HList \
 		HLRescore HLStats HMMIRest HParse \

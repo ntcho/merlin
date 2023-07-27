@@ -55,7 +55,7 @@
 #                                                                       #
 #########################################################################
 
-set path    = ( /Users/ntcho/Workspace/Code/bsri23/merlin/tools/SPTK-3.9/build/bin $path )
+set path    = ( /Volumes/Storage/.workspace/merlin/tools/SPTK-3.9/build/bin $path )
 set sptkver = '3.9'
 set cvsid   = '$Id: grlogsp.in,v 1.24 2015/12/14 05:45:40 uratec Exp $'
 

@@ -69,7 +69,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = ..
 
-prefix = /Users/ntcho/Workspace/Code/bsri23/merlin/tools/htk/build
+prefix = /Volumes/Storage/.workspace/merlin/tools/htk/build
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
 sbindir = ${exec_prefix}/sbin
@@ -93,7 +93,7 @@ CFLAGS := $(CFLAGS) -ansi -g -O2 -DNO_AUDIO -D'ARCH="darwin"' -I/usr/include/mal
 FFLAGS := $(FFLAGS) -gdwarf-2 -O2  -I. 
 RANLIB = ranlib
 AR     = ar
-INSTALL= /usr/bin/install -c
+INSTALL= /usr/local/bin/ginstall -c
 target = HTKLib.a
 objects = HGraf.o esig_asc.o \
 	esig_edr.o \

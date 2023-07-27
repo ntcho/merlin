@@ -2,7 +2,7 @@
 # Generated automatically by configure.
 # Run this file to recreate the current configuration.
 # This directory was configured as follows,
-# on host Nathans-MacBook-Pro.local:
+# on host Labguests-iMac-2.local:
 #
 # ./configure 
 #
@@ -57,21 +57,21 @@ s%@includedir@%${prefix}/include%g
 s%@oldincludedir@%/usr/include%g
 s%@infodir@%${prefix}/info%g
 s%@mandir@%${prefix}/man%g
-s%@host@%x86_64-apple-darwin22.4.0%g
-s%@host_alias@%x86_64-apple-darwin22.4.0%g
+s%@host@%x86_64-apple-darwin21.6.0%g
+s%@host_alias@%x86_64-apple-darwin21.6.0%g
 s%@host_cpu@%x86_64%g
 s%@host_vendor@%apple%g
-s%@host_os@%darwin22.4.0%g
-s%@target@%x86_64-apple-darwin22.4.0%g
-s%@target_alias@%x86_64-apple-darwin22.4.0%g
+s%@host_os@%darwin21.6.0%g
+s%@target@%x86_64-apple-darwin21.6.0%g
+s%@target_alias@%x86_64-apple-darwin21.6.0%g
 s%@target_cpu@%x86_64%g
 s%@target_vendor@%apple%g
-s%@target_os@%darwin22.4.0%g
-s%@build@%x86_64-apple-darwin22.4.0%g
-s%@build_alias@%x86_64-apple-darwin22.4.0%g
+s%@target_os@%darwin21.6.0%g
+s%@build@%x86_64-apple-darwin21.6.0%g
+s%@build_alias@%x86_64-apple-darwin21.6.0%g
 s%@build_cpu@%x86_64%g
 s%@build_vendor@%apple%g
-s%@build_os@%darwin22.4.0%g
+s%@build_os@%darwin21.6.0%g
 s%@CC@%gcc%g
 s%@RANLIB@%ranlib%g
 s%@AR@%ar%g

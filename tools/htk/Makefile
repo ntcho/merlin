@@ -69,7 +69,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = .
 
-prefix = /Users/ntcho/Workspace/Code/bsri23/merlin/tools/htk/build
+prefix = /Volumes/Storage/.workspace/merlin/tools/htk/build
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
 sbindir = ${exec_prefix}/sbin
@@ -89,7 +89,7 @@ CPPFLAGS =
 CFLAGS = $(CPPFLAGS) -ansi -g -O2 -DNO_AUDIO -D'ARCH="darwin"' -I/usr/include/malloc -Wall -Wno-switch -g -O2
 LDFLAGS = -L/usr/X11R6/lib 
 LIBS = -lm 
-INSTALL = /usr/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 
 DESTDIR =
 
@@ -104,7 +104,7 @@ AUTOCONF = @AUTOCONF@
 AUTOMAKE = @AUTOMAKE@
 AUTOHEADER = @AUTOHEADER@
 
-INSTALL = /usr/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_SCRIPT = ${INSTALL}

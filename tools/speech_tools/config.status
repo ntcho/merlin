@@ -427,7 +427,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/Users/ntcho/Workspace/Code/bsri23/merlin/tools/speech_tools'
+ac_pwd='/Volumes/Storage/.workspace/merlin/tools/speech_tools'
 srcdir='.'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
@@ -598,18 +598,18 @@ S["CPPFLAGS"]=""
 S["LDFLAGS"]=""
 S["CFLAGS"]="-g -O2 -Wall"
 S["CC"]="gcc"
-S["target_os"]="darwin22.4.0"
+S["target_os"]="darwin21.6.0"
 S["target_vendor"]="apple"
 S["target_cpu"]="x86_64"
-S["target"]="x86_64-apple-darwin22.4.0"
-S["host_os"]="darwin22.4.0"
+S["target"]="x86_64-apple-darwin21.6.0"
+S["host_os"]="darwin21.6.0"
 S["host_vendor"]="apple"
 S["host_cpu"]="x86_64"
-S["host"]="x86_64-apple-darwin22.4.0"
-S["build_os"]="darwin22.4.0"
+S["host"]="x86_64-apple-darwin21.6.0"
+S["build_os"]="darwin21.6.0"
 S["build_vendor"]="apple"
 S["build_cpu"]="x86_64"
-S["build"]="x86_64-apple-darwin22.4.0"
+S["build"]="x86_64-apple-darwin21.6.0"
 S["target_alias"]=""
 S["host_alias"]=""
 S["build_alias"]=""

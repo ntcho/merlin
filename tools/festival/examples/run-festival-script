@@ -1,5 +1,5 @@
 #!/bin/sh
-"true" ; exec /Users/ntcho/Workspace/Code/bsri23/merlin/tools/festival/bin/festival --script $0 $*
+"true" ; exec /Volumes/Storage/.workspace/merlin/tools/festival/bin/festival --script $0 $*
 #!/bin/sh
 #####################################################-*-mode:shell-script-*-
 ##                                                                       ##

@@ -197,6 +197,8 @@ then
 
     exit 0
 fi
+
+# ! TEMP: start from here
 if [ "$1" = "bw" ]
 then
     echo "EHMM baum-welch re-estimation"

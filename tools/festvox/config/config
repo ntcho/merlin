@@ -42,7 +42,7 @@
 ##  not as SHARED easier                                                 ##
 ###########################################################################
 
-ESTDIR=/Users/ntcho/Workspace/Code/bsri23/merlin/tools/speech_tools
+ESTDIR=/Volumes/Storage/.workspace/merlin/tools/speech_tools
 
 ###########################################################################
 ##  The location of your compiled Festival (2.0)                         ##
@@ -62,7 +62,7 @@ NOPTHREADFLAGS  =
 
 AR       = ar
 RANLIB   = ranlib
-INSTALL  = /usr/bin/install -c
+INSTALL  = /usr/local/bin/ginstall -c
 
 
 

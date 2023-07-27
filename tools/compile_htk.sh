@@ -34,8 +34,8 @@ else
 fi
 
 ## Unpack everything:
-tar xzf HTK-3.4.1.tar.gz
-tar xzf HDecode-3.4.1.tar.gz
+# tar xzf HTK-3.4.1.tar.gz
+# tar xzf HDecode-3.4.1.tar.gz
 tar xf HTS-2.3alpha_for_HTK-3.4.1.tar.bz2
 
 # apply HTS patch

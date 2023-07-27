@@ -37,9 +37,6 @@
 
 LANG=C; export LANG
 
-# !! macOS Compatibility: using gnu-sed (needs to be installed via brew)
-export PATH="/usr/local/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
 if [ ! "$ESTDIR" ]
 then
    echo "environment variable ESTDIR is unset"
