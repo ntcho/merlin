@@ -1,0 +1,25 @@
+{
+  "python.defaultInterpreterPath": "~/miniconda3/envs/merlin/bin/python",
+  "terminal.integrated.scrollback": 100000,
+  "terminal.integrated.defaultProfile.osx": "zsh-screen",
+  "terminal.integrated.profiles.osx": {
+    "zsh-screen": {
+      "title": "zsh-screen",
+      "overrideName": true,
+      "path": "/bin/zsh",
+      "icon": "terminal",
+      "color": "terminal.ansiMagenta",
+      "args": ["-l", "-i", "-c", "screen -S merlin"],
+      "cwd": "${workspaceFolder}"
+    },
+    "zsh-byobu": {
+      "title": "zsh-byobu",
+      "overrideName": true,
+      "path": "/bin/zsh",
+      "icon": "terminal",
+      "color": "terminal.ansiMagenta",
+      "args": ["-l", "-i", "-c", "byobu-screen"],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}
