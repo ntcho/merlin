@@ -49,10 +49,12 @@ pip install git+https://github.com/MattShannon/bandmat
 ### Merlin toolkit
 
 ```bash
-brew install coreutils autoconf automake libtool gnu-sed
+brew install cmake coreutils autoconf automake libtool gnu-sed gawk
 vi ~/.zprofile  # add `PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"`
 bash tools/compile_tools.sh
 ```
+
+> on macOS, you might need to add `#include <stdlib.h>` on `tools/postfilter/src/mcpf.c` source code to build.
 
 ### Dataset config
 
