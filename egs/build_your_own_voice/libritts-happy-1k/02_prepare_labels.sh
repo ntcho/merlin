@@ -35,7 +35,7 @@ fi
 ########## Prepare labels ##########
 ####################################
 
-prepare_labels=false
+prepare_labels=true
 copy=true
 
 if [ "$prepare_labels" = true ]; then
