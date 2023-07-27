@@ -51,11 +51,9 @@ fi
 # !! Workaround for 'Argument list too long'
 # original command
 #   cp $WorkDir/$wav_dir/*.wav wav/
-# alternative command v1
-#   cp -a $WorkDir/$wav_dir/ wav/  # see https://superuser.com/a/138592/632381
-# alternative command v2
-ln -s $WorkDir/$wav_dir wav
-# echo "Copied $(ls wav | wc -l) files to ./wav"
+rm -r wav
+ln -s ../../../$wav_dir wav
+echo "Symlinked $(ls wav | wc -l) files to ./wav"
 
 ./bin/do_build build_prompts 
 ./bin/do_build label
